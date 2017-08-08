@@ -40,6 +40,8 @@ render () {
         </div>
       </div>
       <div className="col-xs-11">
+       <span className="label label-warning">{ this.props.message.labels[0] }</span>
+       <span className="label label-warning">{ this.props.message.labels[1] }</span>
         <a href="#">
         </a>
         <div onClick = { this.toggleRead }>
