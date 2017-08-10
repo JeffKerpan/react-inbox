@@ -143,10 +143,8 @@ constructor(props){
     messages.forEach((el, i)=>{
       if(el['checked']) {
         messages.splice(i);
-        console.log(el);
       }
     });
-    console.log('SOL');
     this.setState({messages : messages});
   }
 
