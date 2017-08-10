@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './App.css';
 import Toolbar from './components/Toolbar';
 import MessageList from './components/MessageList';
@@ -64,6 +64,7 @@ const messages = [
     }
   ];
 
+class App extends React.Component {
 
 constructor(props){
     super(props)
@@ -116,23 +117,36 @@ constructor(props){
     this.setState({messages : messages});
   };
 
-  addLabel = () => {
+  addLabel = (e) => {
     messages.forEach((el)=>{
       if(el['checked']){
-        console.log(el);
+        el.labels.push(e.target.value);
+      }
+    });
+    this.setState({messages : messages});
+  }
+
+  removeLabel = (e) => {
+    messages.forEach((el) => {
+      if(el['checked']){
+        if(el.labels.indexOf(e.target.value) !== -1) {
+          let index = el.labels.indexOf(e.target.value);
+          el.labels.splice(index, 1);
+        }
       }
     });
     this.setState({messages : messages});
   }
 
   toggleDelete = () => {
-    messages.forEach((el)=>{
-      if(el['checked']){
-        // messages.splice(el);
+    // let newMsg = [];
+    messages.forEach((el, i)=>{
+      if(el['checked']) {
+        messages.splice(i);
         console.log(el);
       }
     });
-    // console.log(messages);
+    console.log('SOL');
     this.setState({messages : messages});
   }
 
@@ -140,7 +154,8 @@ constructor(props){
   render() {
     return (
       <div>
-        <Toolbar toggleCheckAll={this.toggleCheckAll} markRead={this.markRead} markUnread={this.markUnread} addLabel={this.addLabel} toggleDelete={this.toggleDelete}/>
+        <Toolbar toggleCheckAll={this.toggleCheckAll} markRead={this.markRead} markUnread={this.markUnread} addLabel={this.addLabel}
+        removeLabel={this.removeLabel} toggleDelete={this.toggleDelete}/>
         <MessageList messages={messages} toggleCheck={this.toggleCheck} toggleStar={this.toggleStar} toggleRead={this.toggleRead} />
       </div>
     );
