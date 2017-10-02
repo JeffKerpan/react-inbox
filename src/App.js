@@ -148,7 +148,6 @@ constructor(props){
     this.setState({messages : messages});
   }
 
-
   render() {
     return (
       <div>

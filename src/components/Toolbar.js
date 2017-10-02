@@ -2,11 +2,11 @@ import React from 'react';
 
 class Toolbar extends React.Component {
 
-  constructor(props){
+  constructor(props) {
       super(props)
     }
 
-    render (){
+    render () {
 
       return (
         <div className="row toolbar">
@@ -17,7 +17,7 @@ class Toolbar extends React.Component {
             </p>
 
             <button className="btn btn-default">
-              <input type="checkbox" className="btn btn-default" onClick={this.props.toggleCheckAll} />
+              <input type="checkbox" className="btn btn-default" onClick={this.props.toggleCheckAll}/>
             </button>
 
             <button className="btn btn-default" onClick={this.props.markRead}>

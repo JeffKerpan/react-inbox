@@ -2,10 +2,11 @@ import React from 'react'
 
 class Message extends React.Component {
 
-  constructor(props){
+  constructor(props) {
     super(props)
   }
-  render (){
+  
+  render () {
     return (
       <div className={`row message ${this.props.message.checked? 'selected': null} ${this.props.message.read? 'read': 'unread'}`} >
         <div className="col-xs-1">
@@ -31,4 +32,4 @@ class Message extends React.Component {
   }
 }
 
-export default Message
+export default Message;

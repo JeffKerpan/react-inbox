@@ -2,11 +2,11 @@ import React from 'react'
 import Message from './Message'
 
 class MessageList extends React.Component {
-  constructor(props){
+  constructor(props) {
   super(props)
 }
 
-  render (){
+  render () {
 
     return (
       <div>
